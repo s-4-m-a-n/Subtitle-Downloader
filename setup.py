@@ -21,13 +21,11 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.6',
-    # packages = ["subscene_API","subscene_API.cli","subscene_API.subtitle"],
     packages = ["subtitleDownloader"],
     include_package_data = True, 
     install_requires=[
                     'beautifulsoup4==4.9.0',
                     'requests==2.23.0',
-                    'tkinter==8.6',
                     'subsceneAPI==0.1'
                         ],
     entry_points = {
