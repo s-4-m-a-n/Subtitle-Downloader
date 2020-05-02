@@ -20,7 +20,7 @@ class downloader:
 
 	def downloadFile(self,path,listData,name,limit): ## main ## limit < 6
 		scorelist =self.__likenessChecker(listData,name)
-		for i in range(limit):
+		for i in range(int(limit)):
 			
 			highestScoreIndex = scorelist.index(max(scorelist))
 	   
