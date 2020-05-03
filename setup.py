@@ -1,7 +1,7 @@
 import setuptools
 
 def readme():
-    with open("README.md", "r") as fh:
+    with open("README.md", "r",encoding='utf-8') as fh:
         README = fh.read()
     return README
 
