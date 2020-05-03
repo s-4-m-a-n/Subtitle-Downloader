@@ -26,7 +26,7 @@ setuptools.setup(
     install_requires=[
                     'beautifulsoup4==4.9.0',
                     'requests==2.23.0',
-                    'subsceneAPI==0.1'
+                    'subsceneAPI==0.2'
                         ],
     entry_points = {
         'console_scripts':['subtitleDownloader=subtitleDownloader.cli:main']
