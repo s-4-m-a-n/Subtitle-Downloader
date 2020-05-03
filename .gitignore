@@ -1,3 +1,7 @@
 .ipynb_checkpoints
 *.ipynb
 subtitleDownloader/__pycache__
+build/
+dist/
+*.egg-info/
+.eggs/
