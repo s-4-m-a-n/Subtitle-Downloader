@@ -5,7 +5,7 @@ from zipfile import ZipFile
 import os
 import re
 import requests
-
+import sys
 
 
 
@@ -15,20 +15,25 @@ class downloader:
 		root = tk.Tk()
 		root.title("subtitle downloader")
 		root.withdraw()
-		return os.path.normpath(filedialog.askopenfilename())
-
+		path = os.path.normpath(filedialog.askopenfilename())
+		print("fileName : "+path)
+		return path
 
 	def downloadFile(self,path,listData,name,limit): ## main ## limit < 6
 		scorelist =self.__likenessChecker(listData,name)
 		for i in range(int(limit)):
 			
-			highestScoreIndex = scorelist.index(max(scorelist))
-	   
+			try:
+				highestScoreIndex = scorelist.index(max(scorelist))
+			except Exception as e:
+				print(" oops !! No result found !! \n  ")
+				sys.exit()
+
 			scorelist[highestScoreIndex] = -1 ## replacing greaterScore by negative value in the scorelist so that second highest index will be the highest one for next iteration
 			link = listData[highestScoreIndex][1]
 			self.getZIPfile(link,path)
 			print(link)
-			print("download successful..............")
+			print("**** download successful ****")
 
 
 
@@ -61,18 +66,16 @@ class downloader:
 			file.printdir()
 			print("\nExtracting zip file ............(!! please wait !!)\n")
 			file.extractall(os.path.dirname(fullName))
-			print("\n Extraction successfull ........ \n****!!!! enjoy the movie , have fun  !!!****\n ")
+			print("\n Extraction successfull ........ \n ")
 		os.remove(fullName)    
 
 
 
 def main(title,year='',language="english",limit=1):
-	try:
-		if title == None:
-			raise Exception(" 'title' cannot be blank ")
 	
-	except ValueError as e :
-		print("value Error :" + repr(e))
+	if title == None:
+			print("\n!! Error :  'title' cannot be blank ")
+			sys.exit()
 	
 
 	obj = downloader()
