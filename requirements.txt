@@ -6,5 +6,8 @@ beautifulsoup4=4.9.0=py38_0
 requests=2.23.0=py38_0
 subsceneapi=0.2=pypi_0
 
+# linux
+
+lxml==4.5.0
 
 
